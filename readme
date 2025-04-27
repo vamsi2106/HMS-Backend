@@ -1,0 +1,22 @@
+Prerequies:
+1.Python Version : Python 3.11.9
+
+Backend:
+1. change the working directry  to backend : cd backend
+2. activate python env: python -m venv venv 
+3. then enter this : venv\Scripts\activate || after you enter this in ur terminal you will see like this in termimal ` "(venv)"" PS C:\Users\Desktop\HMS> note: this is my local pc path for you it will change this is an example`
+4. Install packages(ONE TIME INSTALLATION NOT REQUIRED EVEYRTIME, if you install this things, you can directly go to step 5 directly.): 
+  python init_db.py
+  pip install fastapi uvicorn  pydantic bcrypt
+  pip install python-jose[cryptography] passlib 
+5. Start the backend server: uvicorn main:app --reload
+
+Frontend:
+
+Prerequies: 
+1.Install nodejs : v20.12.2
+
+1.Open new terminal : to open new terminal press `crtl + shift + ~` 
+2. Navigate to : cd frontend (Same one time installation)
+3. Install packages: npm install 
+4. To run frontend server: npm run dev 
