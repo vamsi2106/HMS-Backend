@@ -14,11 +14,12 @@ import uuid
 
 app = FastAPI()
 
-origins = ["*", "http://localhost:5174"]
+origins = ["*"]  # allow all origins
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    allow_origin_regex=".*",       # allow all origins including credentials
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -524,6 +525,11 @@ def get_booking_report(date_from: str, date_to: str, current_user: dict = Depend
     ).fetchall()
     conn.close()
     return {"bookings": bookings}
+
+# Add test route for AWS EC2 deployment verification
+@app.get("/api/test")
+def test_route():
+    return {"message": "Backend deployed in EC2 instance - testing and demo route"}
 
 # Run the app
 if __name__ == "__main__":
